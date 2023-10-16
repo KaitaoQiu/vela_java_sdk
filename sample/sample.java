@@ -16,7 +16,6 @@ import io.kubernetes.client.util.Config;
 import java.io.IOException;
 import java.util.Collections;
 import io.kubernetes.client.openapi.apis.CustomObjectsApi;
-//import io.kubernetes.client.openapi.apis.GenericKubernetesApi;
 
 
 class workerComponent extends V1beta1ComponentDefinition {
@@ -37,11 +36,6 @@ class workerComponent extends V1beta1ComponentDefinition {
 
 public class sample {
     public static void main(String[] args) throws ApiException, IOException {
-//        WorkerSpec workerSpec = new WorkerSpec().image("nginx:latest");
-//        workerComponent simpleDefinition = new workerComponent();
-//        simpleDefinition.setWorkerSpec(workerSpec);
-//
-//        System.out.println("WorkerSpec: " + workerSpec); // 添加这行进行调试输出
         WorkerSpec workerSpec = new WorkerSpec().image("nginx:latest");
 
         workerComponent simpleComponent = new workerComponent();
@@ -50,7 +44,6 @@ public class sample {
         V1beta1ApplicationSpecComponents componentDefinition = new V1beta1ApplicationSpecComponents();
         componentDefinition.setProperties(workerSpec);
 
-        // 创建一个 V1beta1Application 对象
         V1beta1Application application = new V1beta1Application()
                 .apiVersion("core.oam.dev/v1beta1")
                 .kind("Application")
@@ -75,7 +68,5 @@ public class sample {
         } catch (ApiException e) {
             throw new RuntimeException(e);
         }
-
-
     }
 }

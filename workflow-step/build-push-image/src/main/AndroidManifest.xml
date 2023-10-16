@@ -1,0 +1,3 @@
+<manifest package="sdk.kubevela.build_push_image" xmlns:android="http://schemas.android.com/apk/res/android">
+    <application />
+</manifest>
